@@ -16,7 +16,6 @@
     --surface: #0d0800;
     --surface2: #120b00;
     --border: #3a2200;
-    --border-bright: #5a3800;
     --glow: 0 0 10px #ffb000, 0 0 30px rgba(255,176,0,0.25);
     --glow-sm: 0 0 5px #ffb000, 0 0 12px rgba(255,176,0,0.2);
     --red: #ff3300;
@@ -52,26 +51,6 @@
   #app { animation:fadeIn 0.4s ease 3.2s both; }
   .terminal { animation:flicker 10s infinite;max-width:560px;margin:0 auto;padding:12px;padding-bottom:80px; }
 
-  /* API screen */
-  #api-screen { display:none;flex-direction:column;align-items:center;justify-content:center;min-height:80vh;padding:20px;text-align:center; }
-  #api-screen.show { display:flex; }
-  .api-box { border:1px solid var(--border);background:var(--surface);padding:24px;max-width:460px;width:100%;position:relative; }
-  .api-box::before { content:'// ANTHROPIC API KEY — FOR CALENDAR SYNC'; position:absolute;top:-9px;left:14px;background:var(--bg);padding:0 6px;font-size:9px;color:var(--amber-dim);letter-spacing:1px; }
-  .api-label { font-size:10px;color:var(--amber-dim);letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;display:block;text-align:left; }
-  .api-input { width:100%;background:var(--bg);border:1px solid var(--border);color:var(--amber);font-family:'Share Tech Mono',monospace;font-size:12px;padding:10px;letter-spacing:1px;outline:none;transition:border-color 0.15s;margin-bottom:10px; }
-  .api-input:focus { border-color:var(--amber); }
-  .api-input::placeholder { color:var(--amber-dim); }
-  .api-btn { width:100%;background:transparent;border:2px solid var(--amber);color:var(--amber);font-family:'VT323',monospace;font-size:20px;letter-spacing:3px;padding:10px;cursor:pointer;transition:all 0.15s; }
-  .api-btn:hover { background:var(--amber);color:var(--bg); }
-  .api-skip { width:100%;background:transparent;border:1px solid var(--border);color:var(--amber-dim);font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:1px;padding:8px;cursor:pointer;transition:all 0.15s;margin-top:6px;text-transform:uppercase; }
-  .api-skip:hover { color:var(--amber);border-color:var(--amber-dim); }
-  .api-note { font-size:9px;color:var(--amber-dark);margin-top:10px;letter-spacing:1px;line-height:1.6;text-align:left; }
-
-  /* Main briefing */
-  #briefing-screen { display:none; }
-  #briefing-screen.show { display:block; }
-
-  /* Header */
   .brief-header { border:2px solid var(--amber);box-shadow:var(--glow);padding:16px 18px;margin-bottom:12px;background:var(--surface);position:relative; }
   .brief-header::before { content:'VAULT-TEC OPERATIVE DAILY BRIEFING // MURCHISON OUTPOST VIC-075'; position:absolute;top:-9px;left:14px;background:var(--bg);padding:0 6px;font-size:8px;color:var(--amber-dim);letter-spacing:1px; }
   .brief-date { font-family:'VT323',monospace;font-size:32px;color:var(--amber);text-shadow:var(--glow);letter-spacing:2px;line-height:1; }
@@ -79,15 +58,12 @@
   .brief-operative { font-size:9px;color:var(--amber-dim);letter-spacing:3px;margin-top:4px; }
   .cursor { display:inline-block;width:7px;height:12px;background:var(--amber);animation:blink 1s infinite;vertical-align:middle;margin-left:3px; }
 
-  /* Greeting */
   .greeting-box { border:1px solid var(--amber-dim);padding:11px 14px;margin-bottom:10px;background:var(--bg); }
   .greeting-text { font-size:12px;color:var(--amber-bright);letter-spacing:0.5px;line-height:1.6; }
 
-  /* Refresh */
   .refresh-btn { width:100%;background:transparent;border:1px solid var(--border);color:var(--amber-dim);font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:2px;padding:9px;cursor:pointer;transition:all 0.15s;text-transform:uppercase;margin-bottom:10px; }
   .refresh-btn:hover { border-color:var(--amber);color:var(--amber); }
 
-  /* Sections */
   .brief-section { border:1px solid var(--border);background:var(--surface);margin-bottom:10px;overflow:hidden; }
   .brief-section-header { display:flex;align-items:center;justify-content:space-between;padding:10px 12px;background:var(--surface2);cursor:pointer;user-select:none; }
   .brief-section-title { font-size:10px;letter-spacing:2px;text-transform:uppercase; }
@@ -95,7 +71,6 @@
   .brief-section-body { padding:12px;display:none; }
   .brief-section.expanded .brief-section-body { display:block;animation:fadeIn 0.2s ease; }
 
-  /* Weather */
   .weather-wrap { display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:center; }
   .weather-icon { font-size:48px;line-height:1; }
   .weather-temp { font-family:'VT323',monospace;font-size:52px;color:var(--amber);text-shadow:var(--glow-sm);line-height:1; }
@@ -111,7 +86,6 @@
   .fc-min { font-size:8px;color:var(--amber-dim); }
   .triton-warn { border:1px solid var(--red);padding:8px 10px;margin-top:10px;font-size:10px;color:var(--red);letter-spacing:1px;animation:pulse 2s infinite; }
 
-  /* Calendar */
   .cal-event { padding:9px 0;border-bottom:1px solid var(--border); }
   .cal-event:last-child { border-bottom:none; }
   .cal-event-time { font-size:9px;color:var(--amber-dim);letter-spacing:1px;margin-bottom:2px; }
@@ -119,7 +93,6 @@
   .cal-event.show-type { border-left:3px solid var(--amber);padding-left:8px; }
   .cal-event.personal-type { border-left:3px solid var(--blue);padding-left:8px; }
 
-  /* Tasks */
   .task-item { display:flex;align-items:flex-start;gap:8px;padding:8px 0;border-bottom:1px solid var(--border); }
   .task-item:last-child { border-bottom:none; }
   .task-check { width:14px;height:14px;border:1px solid var(--amber-dim);cursor:pointer;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:9px;transition:all 0.15s;margin-top:2px; }
@@ -137,19 +110,15 @@
   .task-input { flex:1;min-width:100px;background:var(--bg);border:1px solid var(--border);color:var(--amber);font-family:'Share Tech Mono',monospace;font-size:11px;padding:7px 9px;letter-spacing:1px;outline:none;transition:border-color 0.15s; }
   .task-input:focus { border-color:var(--amber); }
   .task-input::placeholder { color:var(--amber-dim); }
+  select.task-input { cursor:pointer; }
   .task-add-btn { background:transparent;border:1px solid var(--amber-dim);color:var(--amber-dim);font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:1px;padding:7px 10px;cursor:pointer;transition:all 0.15s;text-transform:uppercase; }
   .task-add-btn:hover { border-color:var(--amber);color:var(--amber); }
 
-  /* Shows */
   .show-item { padding:8px 0;border-bottom:1px solid var(--border); }
   .show-item:last-child { border-bottom:none; }
   .show-name { font-size:12px;color:var(--amber-bright);letter-spacing:0.5px; }
   .show-meta { font-size:9px;color:var(--amber-dim);letter-spacing:1px;margin-top:2px; }
   .show-countdown { font-family:'VT323',monospace;font-size:22px;color:var(--amber); }
-
-  /* Reset key */
-  .reset-btn { width:100%;background:transparent;border:1px solid var(--border);color:var(--amber-dark);font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:1px;padding:7px;cursor:pointer;transition:all 0.15s;text-transform:uppercase;margin-top:8px; }
-  .reset-btn:hover { border-color:var(--amber-dim);color:var(--amber-dim); }
 
   .empty-state { text-align:center;padding:14px;color:var(--amber-dim);font-size:10px;letter-spacing:2px;line-height:2; }
   .toast { position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--amber);color:var(--bg);font-family:'VT323',monospace;font-size:18px;letter-spacing:3px;padding:9px 20px;z-index:4000;box-shadow:var(--glow);display:none;white-space:nowrap; }
@@ -167,25 +136,6 @@
 </div>
 
 <div id="app">
-
-<!-- API screen -->
-<div id="api-screen">
-  <div class="api-box">
-    <label class="api-label">// ANTHROPIC API KEY</label>
-    <input type="password" class="api-input" id="api-key-input" placeholder="sk-ant-api03-..." autocomplete="off" />
-    <button class="api-btn" onclick="saveApiKey()">▶ INITIALISE BRIEFING</button>
-    <button class="api-skip" onclick="skipApiKey()">[ SKIP — WEATHER ONLY, NO CALENDAR SYNC ]</button>
-    <div class="api-note">
-      API key enables Google Calendar sync.<br>
-      Weather works without a key — it's always free.<br>
-      Get your key at console.anthropic.com<br>
-      Key is stored in your browser only.
-    </div>
-  </div>
-</div>
-
-<!-- Briefing -->
-<div id="briefing-screen">
 <div class="terminal">
 
   <div class="brief-header">
@@ -200,7 +150,6 @@
 
   <button class="refresh-btn" id="refresh-btn" onclick="loadLiveData()">⚙ REFRESH BRIEFING</button>
 
-  <!-- Weather -->
   <div class="brief-section expanded" id="section-weather">
     <div class="brief-section-header" onclick="toggleSection('weather')">
       <span class="brief-section-title" style="color:var(--blue);">🌤 ATMOSPHERIC CONDITIONS — MURCHISON</span>
@@ -211,7 +160,6 @@
     </div>
   </div>
 
-  <!-- Today's calendar -->
   <div class="brief-section expanded" id="section-calendar">
     <div class="brief-section-header" onclick="toggleSection('calendar')">
       <span class="brief-section-title" style="color:var(--amber);">📅 TODAY'S DEPLOYMENTS</span>
@@ -222,7 +170,6 @@
     </div>
   </div>
 
-  <!-- Tasks -->
   <div class="brief-section expanded" id="section-tasks">
     <div class="brief-section-header" onclick="toggleSection('tasks')">
       <span class="brief-section-title" style="color:var(--orange);">⚡ ACTIVE TASKS</span>
@@ -232,7 +179,7 @@
       <div id="task-list"></div>
       <div class="add-task-row">
         <input type="text" class="task-input" id="new-task" placeholder="Add task..." autocomplete="off" onkeydown="if(event.key==='Enter')addTask()" />
-        <select class="task-input" id="task-pri" style="max-width:80px;cursor:pointer;background:var(--bg);border:1px solid var(--border);color:var(--amber);">
+        <select class="task-input" id="task-pri" style="max-width:80px;">
           <option value="high">HIGH</option>
           <option value="med" selected>MED</option>
           <option value="low">LOW</option>
@@ -242,7 +189,6 @@
     </div>
   </div>
 
-  <!-- Upcoming shows -->
   <div class="brief-section expanded" id="section-shows">
     <div class="brief-section-header" onclick="toggleSection('shows')">
       <span class="brief-section-title" style="color:var(--purple);">🚐 UPCOMING DEPLOYMENTS</span>
@@ -251,16 +197,14 @@
     <div class="brief-section-body" id="shows-body"></div>
   </div>
 
-  <button class="reset-btn" onclick="resetKey()">[ RESET API KEY ]</button>
-
 </div>
-</div>
-
 </div>
 <div class="toast" id="toast"></div>
 
 <script>
-const KEY = 'ruraljdm_briefing_v2';
+// ── CONFIG ─────────────────────────────────────────────────────────────────
+const WORKER_URL = 'https://ruraljdm-briefing.jtcelic01.workers.dev';
+const KEY = 'ruraljdm_briefing_v3';
 
 const SHOWS = [
   {name:'Yarra Glen Caravan Show',start:'2026-03-19',state:'VIC'},
@@ -281,14 +225,14 @@ const SHOWS = [
   {name:'Mildura Caravan Show',start:'2026-12-03',state:'VIC'},
 ];
 
-let apiKey = '';
 let tasks = [];
 
-// Boot
+// ── BOOT ───────────────────────────────────────────────────────────────────
 const bootMsgs = [
   'INITIALISING OPERATIVE SYSTEMS..........<span class="ok">OK</span>',
   'LOCATING MURCHISON VIC-075...............<span class="ok">OK</span>',
   'CONNECTING TO WEATHER FEED...............<span class="ok">OK</span>',
+  'CONNECTING TO CALENDAR FEED..............<span class="ok">OK</span>',
   'DAILY BRIEFING TERMINAL READY............<span class="ok">OK</span>',
 ];
 let bi=0;
@@ -299,7 +243,7 @@ function runBoot(){
     el.innerHTML=bootMsgs[bi];
     document.getElementById('boot-lines').appendChild(el);
     bi++;
-    setTimeout(runBoot,380);
+    setTimeout(runBoot,360);
   }
 }
 setTimeout(runBoot,150);
@@ -308,49 +252,13 @@ setTimeout(()=>{
   init();
 },3200);
 
-function getData(){
-  try{return JSON.parse(localStorage.getItem(KEY))||{};}
-  catch(e){return {};}
-}
-function saveData(extra={}){
-  const d={...getData(),...extra,tasks};
-  localStorage.setItem(KEY,JSON.stringify(d));
-}
+// ── INIT ───────────────────────────────────────────────────────────────────
+function getData(){try{return JSON.parse(localStorage.getItem(KEY))||{};}catch(e){return {};}}
+function saveData(){try{localStorage.setItem(KEY,JSON.stringify({tasks}));}catch(e){}}
 
 function init(){
   const d=getData();
-  apiKey=d.apiKey||'';
   tasks=d.tasks||[];
-  if(!d.setup){
-    document.getElementById('api-screen').classList.add('show');
-  } else {
-    startBriefing();
-  }
-}
-
-function saveApiKey(){
-  const k=document.getElementById('api-key-input').value.trim();
-  if(k&&!k.startsWith('sk-ant-')){showToast('INVALID KEY FORMAT');return;}
-  apiKey=k;
-  saveData({setup:true,apiKey:k});
-  document.getElementById('api-screen').classList.remove('show');
-  startBriefing();
-}
-
-function skipApiKey(){
-  apiKey='';
-  saveData({setup:true,apiKey:''});
-  document.getElementById('api-screen').classList.remove('show');
-  startBriefing();
-}
-
-function resetKey(){
-  localStorage.removeItem(KEY);
-  location.reload();
-}
-
-function startBriefing(){
-  document.getElementById('briefing-screen').classList.add('show');
   startClock();
   renderGreeting();
   renderTasks();
@@ -358,7 +266,7 @@ function startBriefing(){
   loadLiveData();
 }
 
-// Clock
+// ── CLOCK ──────────────────────────────────────────────────────────────────
 function startClock(){updateClock();setInterval(updateClock,1000);}
 function updateClock(){
   const n=new Date();
@@ -371,7 +279,7 @@ function updateClock(){
   document.getElementById('brief-time').innerHTML=`${h}:${m}:${s}<span class="cursor"></span>`;
 }
 
-// Greeting
+// ── GREETING ───────────────────────────────────────────────────────────────
 function renderGreeting(){
   const h=new Date().getHours();
   const g={
@@ -385,7 +293,7 @@ function renderGreeting(){
   document.getElementById('greeting-text').textContent=opts[Math.floor(Math.random()*opts.length)];
 }
 
-// Load live data
+// ── LIVE DATA ──────────────────────────────────────────────────────────────
 async function loadLiveData(){
   const btn=document.getElementById('refresh-btn');
   btn.textContent='⚙ SYNCING...';
@@ -395,7 +303,7 @@ async function loadLiveData(){
   btn.disabled=false;
 }
 
-// Weather — Open-Meteo, completely free, no key
+// ── WEATHER (Open-Meteo — free, no key) ───────────────────────────────────
 async function loadWeather(){
   const body=document.getElementById('weather-body');
   body.innerHTML=`<div class="loading-row"><span class="spin">⚙</span> Scanning atmosphere...</div>`;
@@ -411,22 +319,13 @@ async function loadWeather(){
     const humidity=c.relative_humidity_2m;
     const wind=Math.round(c.wind_speed_10m);
     const {icon,desc}=wCode(c.weather_code);
-
     document.getElementById('weather-header-temp').textContent=`${temp}°C`;
-
     const forecast=daily.time.slice(1,6).map((t,i)=>{
       const day=['SUN','MON','TUE','WED','THU','FRI','SAT'][new Date(t).getDay()];
       const {icon:fi}=wCode(daily.weather_code[i+1]);
-      return `<div class="fc-day">
-        <div class="fc-day-name">${day}</div>
-        <div class="fc-icon">${fi}</div>
-        <div class="fc-max">${Math.round(daily.temperature_2m_max[i+1])}°</div>
-        <div class="fc-min">${Math.round(daily.temperature_2m_min[i+1])}°</div>
-      </div>`;
+      return `<div class="fc-day"><div class="fc-day-name">${day}</div><div class="fc-icon">${fi}</div><div class="fc-max">${Math.round(daily.temperature_2m_max[i+1])}°</div><div class="fc-min">${Math.round(daily.temperature_2m_min[i+1])}°</div></div>`;
     }).join('');
-
     const triton=temp>=35?`<div class="triton-warn">⚠ ${temp}°C DETECTED — TRITON OVERHEAT RISK. MONITOR COOLANT GAUGE.</div>`:'';
-
     body.innerHTML=`
       <div class="weather-wrap">
         <div class="weather-icon">${icon}</div>
@@ -457,46 +356,35 @@ function wCode(code){
   return {icon:'🌡️',desc:'CONDITIONS UNKNOWN'};
 }
 
-// Calendar via Anthropic API + Google Calendar MCP
+// ── CALENDAR (via Cloudflare Worker) ──────────────────────────────────────
 async function loadCalendar(){
   const body=document.getElementById('calendar-body');
   body.innerHTML=`<div class="loading-row"><span class="spin">⚙</span> Syncing calendar...</div>`;
-
-  if(!apiKey){
-    body.innerHTML=`<div class="empty-state">CALENDAR SYNC REQUIRES API KEY<br>TAP [ RESET API KEY ] TO ADD ONE</div>`;
-    document.getElementById('cal-count').textContent='—';
-    return;
-  }
-
   try{
     const today=new Date();
     const todayStr=today.toISOString().split('T')[0];
-    const tMin=`${todayStr}T00:00:00`;
-    const tMax=`${todayStr}T23:59:59`;
 
-    const res=await fetch('https://api.anthropic.com/v1/messages',{
+    const res=await fetch(WORKER_URL,{
       method:'POST',
-      headers:{
-        'Content-Type':'application/json',
-        'x-api-key':apiKey,
-        'anthropic-version':'2023-06-01',
-        'anthropic-beta':'mcp-client-2025-04-04'
-      },
+      headers:{'Content-Type':'application/json'},
       body:JSON.stringify({
         model:'claude-sonnet-4-20250514',
         max_tokens:2000,
         mcp_servers:[{type:'url',url:'https://gcal.mcp.claude.com/mcp',name:'gcal'}],
         messages:[{
           role:'user',
-          content:`List all Google Calendar events for today ${todayStr} between ${tMin} and ${tMax} in timezone Australia/Melbourne. Return ONLY a JSON array, no other text. Each item: {summary, time, allDay, type} where type is "show" if summary contains caravan/show/4x4/barker/mildura/bendigo/scoresby/ballarat/tamworth/brisbane/mornington/flemington/newcastle/traralgon/lardner/sandown/shepparton/yarra, otherwise "personal". For allDay events set time to "ALL DAY". If no events return [].`
+          content:`List all Google Calendar events for today ${todayStr} in timezone Australia/Melbourne. Return ONLY a JSON array, no other text, no markdown. Each item must have: {summary, time, allDay, type} where type is "show" if the event involves caravan/show/4x4/briefing/deployment, otherwise "personal". For all-day events set allDay to true and time to "ALL DAY". For timed events set allDay to false and time to the formatted time e.g. "9:00 AM". If there are no events return an empty array [].`
         }]
       })
     });
 
-    if(!res.ok){throw new Error('API error '+res.status);}
+    if(!res.ok){throw new Error('Worker error '+res.status);}
+
     const data=await res.json();
-    const text=data.content.filter(c=>c.type==='text').map(c=>c.text).join('');
-    const match=text.match(/\[[\s\S]*?\]/);
+
+    // Extract text from response
+    const textBlocks=data.content?data.content.filter(c=>c.type==='text').map(c=>c.text).join(''):'';
+    const match=textBlocks.match(/\[[\s\S]*?\]/);
     const events=match?JSON.parse(match[0]):[];
 
     document.getElementById('cal-count').textContent=events.length;
@@ -513,12 +401,12 @@ async function loadCalendar(){
       </div>`).join('');
 
   }catch(err){
-    body.innerHTML=`<div style="font-size:10px;color:var(--amber-dim);letter-spacing:1px;">CALENDAR SYNC FAILED<br>${err.message}</div>`;
+    document.getElementById('calendar-body').innerHTML=`<div style="font-size:10px;color:var(--amber-dim);letter-spacing:1px;">CALENDAR SYNC FAILED<br>${err.message}</div>`;
     document.getElementById('cal-count').textContent='!';
   }
 }
 
-// Tasks
+// ── TASKS ──────────────────────────────────────────────────────────────────
 function renderTasks(){
   const el=document.getElementById('task-list');
   const open=tasks.filter(t=>!t.done).length;
@@ -559,7 +447,7 @@ function deleteTask(id){
   saveData();renderTasks();
 }
 
-// Shows
+// ── SHOWS ──────────────────────────────────────────────────────────────────
 function renderShows(){
   const today=new Date();today.setHours(0,0,0,0);
   const upcoming=SHOWS.filter(s=>new Date(s.start)>=today).slice(0,4);
@@ -587,6 +475,8 @@ function showToast(msg){
   t.textContent=msg;t.classList.add('show');
   setTimeout(()=>t.classList.remove('show'),2000);
 }
+
+init();
 </script>
 </body>
-</html>
+  </html>
